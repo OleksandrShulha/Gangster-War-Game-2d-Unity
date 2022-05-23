@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DeffenderButton : MonoBehaviour
 {
+    //Вносым префаб защитников
+    [SerializeField] Deffender deffnederPrefab;
+
     private void OnMouseDown()
     {
         //ищем все обьекты DeffenderButton
@@ -15,5 +18,6 @@ public class DeffenderButton : MonoBehaviour
         }
         //ставим цвет по клику
         GetComponent<SpriteRenderer>().color = Color.white;
+        FindObjectOfType<DefenderSpowner>().SetSelectedDeffender(deffnederPrefab);
     }
 }

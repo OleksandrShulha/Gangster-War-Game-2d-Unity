@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefenderSpowner : MonoBehaviour
 {
-    [SerializeField] GameObject defender;
+    Deffender defender;
     private void OnMouseDown()
     {
         SpawnDefender(GetSquareClick());
@@ -14,7 +14,7 @@ public class DefenderSpowner : MonoBehaviour
     {
 
 
-        GameObject newDefender = Instantiate(defender, wordPos, Quaternion.identity) as GameObject;
+        Deffender newDefender = Instantiate(defender, wordPos, Quaternion.identity) as Deffender;
 
     }
 
@@ -39,6 +39,12 @@ public class DefenderSpowner : MonoBehaviour
         float newX = Mathf.RoundToInt(oldWordPosition.x);
         float newY = Mathf.RoundToInt(oldWordPosition.y);
         return new Vector2(newX, newY); 
+    }
+
+    //выбор кого спавнить
+    public void SetSelectedDeffender(Deffender defennderToSelect)
+    {
+        defender = defennderToSelect;
     }
 
 }
