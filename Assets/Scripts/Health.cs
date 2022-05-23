@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float health = 100f;
     [SerializeField] GameObject deatchVFX;
+    [SerializeField] int scoreEnemis = 50;
 
     //метод нанисения урона и смерти
     public void DealDamage(float damage)
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
             //вызываем эффект
             TrigerDeathVFX();
             Destroy(gameObject);
+            FindObjectOfType<ScoreDispley>().AddScore(scoreEnemis);
         }
     }
 
