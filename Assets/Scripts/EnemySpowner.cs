@@ -12,8 +12,8 @@ public class EnemySpowner : MonoBehaviour
     bool spawnEnemy = true;
 
     //время спавна врагово
-    [SerializeField] float minTimeForSpawmEnemy = 1f;
-    [SerializeField] float maxTimeForSpawnEnemy = 5f;
+    [SerializeField] float minTimeForSpawmEnemy = 10f;
+    [SerializeField] float maxTimeForSpawnEnemy = 20f;
 
 
     // Start is called before the first frame update
@@ -28,7 +28,9 @@ public class EnemySpowner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(enemyForSpawn, transform.position, transform.rotation);
+        Enemy1 newEnemy1 =  Instantiate(enemyForSpawn, transform.position, transform.rotation) as Enemy1;
+        //заносим Атакеров в как дочерний обьект точки спавна
+        newEnemy1.transform.parent = transform;
     }
 
     // Update is called once per frame

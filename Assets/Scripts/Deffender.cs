@@ -11,4 +11,9 @@ public class Deffender : MonoBehaviour
     {
         FindObjectOfType<ScoreDispley>().AddScore(amount);
     }
+
+    public int GetStartCoast()
+    {
+        return startCost;
+    }
 }

@@ -6,9 +6,10 @@ public class DefenderSpowner : MonoBehaviour
 {
 
     Deffender defender;
+
     private void OnMouseDown()
     {
-        SpawnDefender(GetSquareClick());
+        AttempToPlaceDeffender(GetSquareClick());
     }
 
     private void SpawnDefender(Vector2 wordPos)
@@ -46,6 +47,23 @@ public class DefenderSpowner : MonoBehaviour
     public void SetSelectedDeffender(Deffender defennderToSelect)
     {
         defender = defennderToSelect;
+    }
+
+
+    //метод спавна при наличии денег
+    private void AttempToPlaceDeffender(Vector2 gridPos)
+    {
+        //заносим цену для спавна
+        int deffenderCoast = defender.GetStartCoast();
+        //подтягиваем обьекты класса scrore
+        var StartDisplay = FindObjectOfType<ScoreDispley>();
+
+        //если денег хватает спавним защитника и спысываем денгьги
+        if (StartDisplay.HaveEnoughtSrars(deffenderCoast))
+        {
+            SpawnDefender(gridPos);
+            StartDisplay.SpendScore(deffenderCoast);
+        }
     }
 
 }

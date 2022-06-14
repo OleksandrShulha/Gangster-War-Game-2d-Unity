@@ -20,6 +20,11 @@ public class ScoreDispley : MonoBehaviour
         startScore.text = score.ToString();
     }
 
+    //метод возвращает bool, хватает ли очков для покупки
+    public bool HaveEnoughtSrars(int amount)
+    {
+        return score >= amount;
+    }
 
     //добавляем очки
     public void AddScore(int scoreCost)
@@ -31,7 +36,7 @@ public class ScoreDispley : MonoBehaviour
     //убираем очки
     public void SpendScore(int scoreCost)
     {
-        if (score <= scoreCost)
+        if (score >= scoreCost)
         {
             score -= scoreCost;
             UpdateScore();
